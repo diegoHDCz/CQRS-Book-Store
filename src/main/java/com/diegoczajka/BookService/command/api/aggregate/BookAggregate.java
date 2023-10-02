@@ -2,6 +2,7 @@ package com.diegoczajka.BookService.command.api.aggregate;
 
 import com.diegoczajka.BookService.command.api.commands.CreateBookCommand;
 import com.diegoczajka.BookService.command.api.events.BookCreatedEvent;
+import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
@@ -22,6 +23,7 @@ public class BookAggregate {
     public BookAggregate() {
     }
 
+    @CommandHandler
     public BookAggregate(CreateBookCommand createBookCommand) {
         //validate data if needed
         BookCreatedEvent bookCreatedEvent = new BookCreatedEvent();
